@@ -1,65 +1,66 @@
 
-class Solution{
+class Solution
+{
 public:
-      string maxSum(string w,char x[], int b[],int n){
-          // code here 
-          int len = w.length();
+    string maxSum(string w, char x[], int b[], int n)
+    {
+        // code here
+        int len = w.length();
 
-          vector<int> nums(len);
+        vector<int> nums(len);
 
-          map<char, int> m;
+        map<char, int> m;
 
-          for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
+        {
 
-              m[x[i]] = b[i];
+            m[x[i]] = b[i];
+        }
 
-          }
+        for (int i = 0; i < len; i++)
+        {
 
-          for (int i = 0; i < len; i++) {
+            if (m.find(w[i]) == m.end())
+            {
 
-              if (m.find(w[i]) == m.end()) {
+                nums[i] = int(w[i]);
+            }
 
-                  nums[i] = int(w[i]);
+            else
+            {
 
-              }
+                nums[i] = m[w[i]];
+            }
+        }
 
-              else {
+        int sum = 0, max = INT_MIN;
 
-                  nums[i] = m[w[i]];
+        string ans = "", res;
 
-              }
+        for (int i = 0; i < len; i++)
+        {
 
-          }
+            sum += nums[i];
 
-          int sum = 0, max = INT_MIN;
+            ans += w[i];
 
-          string ans = "", res;
+            if (sum > max)
+            {
 
-          for (int i = 0; i < len; i++) {
+                res = ans;
 
-              sum += nums[i];
+                max = sum;
+            }
 
-              ans += w[i];
+            if (sum < 0)
+            {
 
-              if (sum > max) {
+                sum = 0;
 
-                  res = ans;
+                ans = "";
+            }
+        }
 
-                  max = sum;
-
-              }
-
-              if (sum < 0) {
-
-                  sum = 0;
-
-                  ans = "";
-
-              }
-
-          }
-
-          return res;
-      
-      }
+        return res;
+    }
 };
