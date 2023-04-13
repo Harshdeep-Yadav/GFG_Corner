@@ -1,6 +1,7 @@
 class Solution {
   public:
     int finLength(int n, vector<int> color, vector<int> radius) {
+        
         stack<pair<int,int>>st;
         st.push({color[0],radius[0]});
         for(int i=1;i<n;i++){
