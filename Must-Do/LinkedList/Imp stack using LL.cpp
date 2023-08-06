@@ -1,4 +1,4 @@
-void MyStack ::push(int x) 
+void MyStack ::push(int x)
 
 {
 
@@ -6,38 +6,28 @@ void MyStack ::push(int x)
 
     StackNode *node = new StackNode(x);
 
-    node->next=top;
+    node->next = top;
 
-    top=node;
-
+    top = node;
 }
 
- 
-
-int MyStack ::pop() 
+int MyStack ::pop()
 
 {
 
     // Your Code
 
-    if(top==NULL)
+    if (top == NULL)
 
         return -1;
 
-        
+    int x = top->data;
 
-    int x=top->data;
+    StackNode *temp = top;
 
-    
-
-    StackNode *temp=top;
-
-    top=top->next;
+    top = top->next;
 
     delete temp;
 
-    
-
     return x;
-
 }
