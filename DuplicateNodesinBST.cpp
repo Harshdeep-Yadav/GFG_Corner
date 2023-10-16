@@ -18,7 +18,7 @@ public:
         inorder(root->right, s);
     }
     vector<int> findCommon(Node *root1, Node *root2)
-    {
+    {``
         set<int> s;
         inorder(root1, s);
         inorder(root2, s);
