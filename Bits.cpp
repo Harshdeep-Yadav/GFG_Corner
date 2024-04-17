@@ -7,7 +7,7 @@ public:
         if (n == 0 || n < k)
             return 0;
              if (n == 0 || n < k)
-            return 0;
+            return 0
 
         long long res = 1;
 
